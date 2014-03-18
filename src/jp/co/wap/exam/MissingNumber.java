@@ -13,10 +13,8 @@ package jp.co.wap.exam;
 public class MissingNumber {
     
     public static void main(String args[]){
-        String a="1112131516171819";
-        System.out.println("missing="+length(a));  
-        
-        
+        String a="9111213";
+        System.out.println("missing="+length(a));          
     }
     
     public static long length(String a){
@@ -24,7 +22,10 @@ public class MissingNumber {
         Long b,c;
         for(int j=1;j<=a.length()/2;j++){
            b=Long.parseLong(a.substring(0, j));
-           c=Long.parseLong(a.substring(j, 2*j));
+           if(edge(b+1))
+               c=Long.parseLong(a.substring(j, 2*j+1));
+           else
+               c=Long.parseLong(a.substring(j, 2*j));
            if(c-b==1 || c-b==2){
                i=seqFit(a,j);
                if(i!=-1)
@@ -35,11 +36,15 @@ public class MissingNumber {
     }
     
     public static long seqFit(String a, int b){
-        if(a.length()%b!=0)
-            return -1;
+        //if(a.length()%b!=0)
+         //   return -1;
         Long d,c,e,f=new Long(-1);
         for(int i=0;i<a.length()-b;i=i+b){
            c=Long.parseLong(a.substring(i, i+b));
+           if(edge(c+1)){
+               b++;
+               i--;
+           }
            d=Long.parseLong(a.substring(i+b, 2*b+i));
            e=d-c;
            if(!(e==2 || e==1))
@@ -48,5 +53,14 @@ public class MissingNumber {
                f=c+1;
         }
         return f;
+    }
+    
+    public static boolean edge(long a){
+        while(a>1){
+            if(a%10>0)
+                return false;
+            a/=10;
+        }
+        return true;
     }
 }
