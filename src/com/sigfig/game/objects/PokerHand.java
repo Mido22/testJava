@@ -17,4 +17,14 @@ public class PokerHand {
     private Player player;
     private List<CardElement> cards;
     private Double balance;
+    private boolean playing;
+    private Double betAmount;
+    
+    public void fold(){}
+    
+    public void bet(Double d){}
+    
+    public void raise(Double d){}
+    
+    public void allIn(){}
 }

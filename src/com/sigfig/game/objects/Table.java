@@ -10,11 +10,7 @@ package com.sigfig.game.objects;
  *
  * @author mido
  */
-public abstract class Game {
-    
-    private long id;
-    private Dealer dealer;
-    private Table table;
-    
-    
+public class Table {
+    private Long id;
+    private int numOfSeats;
 }

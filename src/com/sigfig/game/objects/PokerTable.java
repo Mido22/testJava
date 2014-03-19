@@ -15,4 +15,5 @@ import java.util.List;
 public class PokerTable {
     
     private List<CardElement> cardsOnTable;
+    private Deck deck;
 }
