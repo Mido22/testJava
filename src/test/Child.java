@@ -1,10 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Example of how Java Inheritance works,
  */
 
 package test;
+
+import java.util.*;
 
 /**
  *
